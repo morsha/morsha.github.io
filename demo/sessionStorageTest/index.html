@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>SessionStorage 範例</title>
+    <meta charset="utf-8">
+    <script>
+      sessionStorage.setItem('name', 'guest')
+    </script>
+  </head>
+  <body>
+    <div>
+      自動設置了一個 sessionStorage，name="guest" <br>
+    </div>
+    <div>
+      sessionStorage 內容：<b></b>
+    </div>
+    <button id="btn">改變 sessionStorage 內容</button><br>
+    <a href="new_tab.html" target="_blank">open another page</a>
+    <script>
+    document.querySelector('b').innerText = sessionStorage.getItem('name')
+    console.log('sessionStorage', sessionStorage)
+    console.log('sessionStorage.name', sessionStorage.name)
+
+    btn.addEventListener('click',() => {
+      sessionStorage.setItem('name', (Math.random()).toString(16))
+      document.querySelector('b').innerText = sessionStorage.getItem('name')
+      console.log('updated sessionStorage', sessionStorage)
+      console.log('updated sessionStorage.name', sessionStorage.name)
+    })
+    </script>
+  </body>
+</html>
